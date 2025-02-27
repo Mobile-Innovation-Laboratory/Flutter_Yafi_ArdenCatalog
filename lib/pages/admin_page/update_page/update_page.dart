@@ -78,7 +78,7 @@ class UpdatePage extends StatelessWidget {
                         labelText: 'Item Price',
                         controller: controller.c_itemPrice,
                       ),
-                      const DropDownFieldWidgets()
+                      const DropDownUpdateFieldWidgets()
                     ],
                   ),
                 ),
@@ -86,7 +86,7 @@ class UpdatePage extends StatelessWidget {
             ),
             CustomCreateTextButton(
               normalText: '',
-              boldText: 'Tambahkan',
+              boldText: 'Update',
               buttonFunction: () => controller.updateData(controller.idData!),
             ),
           ],

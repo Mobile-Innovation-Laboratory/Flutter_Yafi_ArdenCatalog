@@ -48,12 +48,10 @@ class ListItem extends StatelessWidget {
     final detailController = Get.put(C_DetailPage());
     return Obx(() {
       if (controller.catalogList.isEmpty) {
-        return const Center(child: Text("No Catalog Found"));
+        return const Center(child: Text("No Notes Found"));
       }
       return Expanded(
-        child: detailController.isLoading.value
-            ? const Center(child: CircularProgressIndicator())
-            : ListView.separated(
+        child: ListView.separated(
                 shrinkWrap: true,
                 itemCount: controller.catalogList.length,
                 itemBuilder: (context, index) {
