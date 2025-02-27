@@ -71,7 +71,7 @@ class C_LoginPage extends GetxController {
           if (status == 1) {
             Get.offNamed('/admin_dashboard_page');
           } else {
-            Get.offNamed('/dashboard_page');
+            Get.offNamed('/home_page');
           }
         } else {
           Get.snackbar("Login Failed", "Incorrect password",
