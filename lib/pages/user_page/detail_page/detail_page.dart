@@ -48,6 +48,7 @@ class DetailPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MainContent(args: args),
+               controller.userStatus.value == 1 ? const SizedBox() :
               CustomCreateCartTextButton(
                   normalText: '',
                   boldText: 'Tambahkan Keranjang',
