@@ -76,6 +76,7 @@ class C_DashboardPage extends GetxController {
       await prefs.remove('token');
       await prefs.remove('username');
       await prefs.remove('status');
+      refresh();
 
       Get.offAndToNamed('/login_page');
     } catch (errorMsg) {
