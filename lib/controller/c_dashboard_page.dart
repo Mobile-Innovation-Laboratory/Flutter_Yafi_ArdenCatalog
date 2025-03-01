@@ -75,8 +75,9 @@ class C_DashboardPage extends GetxController {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.remove('token');
       await prefs.remove('username');
-      await prefs.remove('status');
-      refresh();
+      await prefs.remove('status').whenComplete(
+            () => refresh(),
+          );
 
       Get.offAndToNamed('/login_page');
     } catch (errorMsg) {

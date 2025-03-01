@@ -46,7 +46,7 @@ void calculateTotalPrice() {
       );
       await cartCollection.add(catalog.toMap()).whenComplete(() {
         isLoading.value = false;
-        calculateTotalPrice(); // Update total price after adding
+        calculateTotalPrice(); 
       }).then((value) => Get.toNamed('/cart_page'));
     } catch (errorMessage) {
       throw Exception("Error: $errorMessage");
@@ -56,7 +56,8 @@ void calculateTotalPrice() {
   Future<void> deleteCart(String docId) async {
     try {
       await cartCollection.doc(docId).delete();
-      calculateTotalPrice(); // Update total price after deleting
+      calculateTotalPrice(); 
+      refresh();
     } catch (error) {
       Get.snackbar("Error", "Failed to delete item: $error",
           snackPosition: SnackPosition.BOTTOM,

@@ -1,5 +1,6 @@
 import 'package:billiard_catalog/color/color.dart';
 import 'package:billiard_catalog/controller/c_cart_page.dart';
+import 'package:billiard_catalog/controller/c_checkout_page.dart';
 import 'package:billiard_catalog/widgets/cart_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(C_CartPage());
+    final checkoutController = Get.put(C_CheckoutPage());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -45,12 +47,14 @@ class CartPage extends StatelessWidget {
                   leading: 'Total',
                   trailing: controller.totalPrice.value.toString(),
                 )),
-            CustomCreateCartTextButton(
-                normalText: '',
-                boldText: 'Checkout',
-                buttonFunction: () {
-                  Get.toNamed('/checkout_page');
-                }),
+            controller.cartList.isEmpty
+                ? const SizedBox()
+                : CustomCreateCartTextButton(
+                    normalText: '',
+                    boldText: 'Checkout',
+                    buttonFunction: () {
+                      checkoutController.checkout();
+                    }),
           ],
         ),
       ),

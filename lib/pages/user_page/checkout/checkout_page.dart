@@ -1,4 +1,5 @@
-import 'package:billiard_catalog/controller/c_checkout_page.dart';
+import 'package:billiard_catalog/color/color.dart';
+import 'package:billiard_catalog/widgets/button_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -8,7 +9,6 @@ class CheckoutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(C_CheckoutPage());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -20,7 +20,15 @@ class CheckoutPage extends StatelessWidget {
             children: [
               Lottie.asset('assets/lottie/lottie_success.json',
                   repeat: false, width: 300, height: 300),
-                  const Text('Checkout Success!', style: TextStyle(fontSize: 24),)
+              const Text(
+                'Checkout Success!',
+                style: TextStyle(fontSize: 24),
+              ),
+              CustomTextButton(
+                  normalText: '',
+                  backgroundColor: AppColor.primary,
+                  boldText: 'Kembali ke beranda',
+                  buttonFunction: () => Get.offAllNamed('/home_page'))
             ],
           ),
         ),
